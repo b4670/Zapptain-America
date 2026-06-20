@@ -928,6 +928,13 @@ def tab_identify(db_paired, db_constellation):
         label_visibility="collapsed",
         key="identify_uploader",
     )
+
+    # ── Audio player — shown as soon as a file is dropped ───────────────────
+    if uploaded:
+        sec_hdr("⟁ Clip preview")
+        st.audio(uploaded, format=f"audio/{uploaded.name.rsplit('.',1)[-1].lower()}")
+        uploaded.seek(0)   # reset so read() below gets the full bytes
+
     run = st.button("⚡ IDENTIFY", type="primary", use_container_width=True)
 
     if not (uploaded and run):
