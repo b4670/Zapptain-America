@@ -999,6 +999,17 @@ def tab_identify(db_paired, db_constellation):
         if fig2:
             st.pyplot(fig2, use_container_width=True)
             plt.close(fig2)
+        st.markdown(
+            f'<div class="hash-info" style="font-size:0.85rem;opacity:1;color:#f59e0b;">'
+            f'⟁ Clip matched from <span style="color:#fef2f2;font-weight:700;">'
+            f'{winner.replace("_", " ")}</span>'
+            f' &nbsp;·&nbsp; '
+            f'<span style="color:#00e5ff;">{win_start:.2f}s</span>'
+            f' → '
+            f'<span style="color:#00e5ff;">{win_end:.2f}s</span>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
     elif not peaks_list:
         st.markdown(
             '<div class="song-meta" style="color:#57534e;">'
